@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  background-color: bisque;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 2rem;
+}
+h1 {
+  font-size: 2rem;
+}
+button {
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: none;
+  border: none;
+}
+span:hover {
+  text-decoration: underline;
+}
+.input-box {
+  width: 300px;
+  border-radius: 3rem;
+  box-shadow: rgba(0, 3, 0, 0.6);
+  margin-top: 1rem;
+}
+.input {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.button {
+  border: none;
+  padding: 0.4rem 1rem;
+  background-color: dodgerblue;
+  color: wheat;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
