@@ -1,33 +1,45 @@
-const commentContainer = document.querySelector(".comment-container");
+let commentContainer = document.getElementById("comment-container");
 
-function createInputBox(params) {
-  let div = document.querySelector(".input-box");
+function createInputBox() {
+  let div = document.createElement("div");
+  div.setAttribute("class", "comment-details");
 
   div.innerHTML += `
-  <input type="text" name="text" class="input" />
-  <button class="button submit">Comment</button>
-  `;
+    <input type="text" placeholder="add text here" class="input" />
+    <button class="btn submit">Submit</button>`;
 
   return div;
 }
 
-function commentDetails(text) {
-  let div = document.querySelector(".comment-details");
+function addReply(text) {
+  let div = document.createElement("div");
+  div.setAttribute("class", "all-comment");
+
   div.innerHTML += `
-  <h1 class="text">${text}</h1>
-  <button class="reply">comment now</button>
-  `;
+    <div class="card">
+      <span class="text">${text}</span>
+      <span id="reply" class="reply">
+        Add Reply
+      </span>
+    </div>`;
+
+  return div;
 }
-commentContainer.addEventListener("click", (e) => {
-  let replyBtn = e.target.classList.contains("reply");
-  let submitBtn = e.target.classList.contains("submit");
-  let allCommentCont = document.querySelector(".all-comment");
-  if (replyBtn) {
-    // add comment details
-    allCommentCont.appendChild(createInputBox());
+
+commentContainer.addEventListener("click", function (e) {
+  let replyClicked = e.target.classList.contains("reply");
+  let submitClicked = e.target.classList.contains("submit");
+  let closestCard = e.target.closest(".all-comment");
+
+  if (replyClicked) {
+    closestCard.appendChild(createInputBox());
   }
-  if (submitBtn) {
-    // add input box
-    allCommentCont.appendChild(commentDetails());
+
+  if (submitClicked) {
+    const commentDetails = e.target.closest(".comment-details");
+    if (commentDetails.children[0].value) {
+      closestCard.appendChild(addReply(commentDetails.children[0].value));
+      commentDetails.remove();
+    }
   }
 });

@@ -3,24 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Nested Comments</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <section class="container">
-      <div class="comment-container">
+    <div class="container">
+      <div id="comment-container" class="comment-container">
         <div class="all-comment">
-          <div class="comment-details">
-            <h1 class="text">First commenter</h1>
-            <button class="reply">comment now</button>
-          </div>
-          <div class="input-box">
-            <input type="text" name="text" class="input" />
-            <button class="button submit">Comment</button>
+          <div class="card">
+            <span class="text">First Commenter</span>
+            <span id="reply" class="reply">Add Reply</span>
           </div>
         </div>
       </div>
-    </section>
+      <!-- <div class="comment-details">
+            <input type="text" placeholder="add text here" class="input" />
+            <button class="btn submit">Submit</button>
+        </div> -->
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
